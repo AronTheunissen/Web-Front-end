@@ -8,6 +8,7 @@
         <meta name="description" content="The ticket shop for Sogyo employees">
 
         <link rel="stylesheet" href="style/main.css">
+        <link rel="shortcut icon" type="image/jpg" href="img/favicon2.png"/>
     </head>
 
     <body>
@@ -40,18 +41,21 @@
             </a>
         </nav>
 
-        <main>
-            <button id="finalizepaymentbutton">Pay now</button>
-        </main>
-
         <template id="ticket">
-            <article>
-                <div>Parkname</div>
+            <article class="ticketBasket">
+                <div>Parkname:</div>
                 <div>Adults: </div>
                 <div>Kids:</div>
-                <button>Cancel order</button>
+                <button class="cancelOrderButton">Cancel these tickets.</button>
             </article>
         </template>
+
+        <main>
+            <div id="stub"/>
+            <button class="finalizepaymentbutton">Pay now</button>
+        </main>
+
+        <script src="src/shoppingbasket.js"></script>
 
     </body>
 </html>

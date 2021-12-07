@@ -1,10 +1,10 @@
 body {
     font-family: 'Lato', sans-serif;
-    padding: 0px;
+    padding: 20px;
     margin: 0px;
 
-    --primary-color: #007936;
-    --accent-color: #eee;
+    --primary-color: #4B0082;
+    --accent-color: #DEBAD6;
     --light-text-color: rgb(107, 107, 107);
 }
 
@@ -13,6 +13,8 @@ body {
     background-color: var(--primary-color);
     font-size: 3rem;
     color: white;
+	text-align: center;
+	
 }
 
 #logo-header {
@@ -26,20 +28,42 @@ body {
 }
 
 main {
-    padding: 25px;
+    padding: 30px;
 }
 
 nav
 {
+	top: 0;
+	position: sticky;
+	z-index: 20;
+	min-height: 30 px;
     height: 2rem;
     line-height: 2rem;
+	color: transparent;
+	text-align: center;
     background-color: var(--accent-color);
 }
+
+nav a
+{
+	color: forestgreen;
+	background-color: transparent;
+	text-decoration: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+nav a:hover {
+	background-color: #FFE5B4;
+	color: green;
+}
+
+
 
 /* Describes the styling of all elements with class="parkname", note the . in front of parkname */
 .parkname {
     background-color: var(--primary-color);
-    color: white;
+    color: #FFE5B4;
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -47,9 +71,9 @@ nav
 
 /* Describes the styling of all <article> elements */
 article {
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     color: var(--light-text-color);
-    margin: 5px;
+    margin: 10px;
 }
 
 .order {
@@ -63,4 +87,10 @@ article {
     font-weight: bold;
     width: 25px;
     border-radius: 25px;
+}
+
+.orderbutton {
+	background-color: #FFE5B4;
+	font-weight: bold;
+	text-color: #4B0082;	
 }
