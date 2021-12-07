@@ -21,20 +21,19 @@ function makeTicket() {
 
 makeTicket();
 
-let buttonCancel = document.querySelector(".cancelOrderButton");
-buttonCancel.addEventListener("click", cancelButtonClicked);
-
 function cancelButtonClicked() {
-    localStorage.clear();
-    window.location.href = "orderplaced.html";
+    localStorage.removeItem(document.getElementById("cancelOrderButton").parentNode);
 }
 
 let buttonPay = document.querySelector(".finalizepaymentbutton");
-console.log(buttonPay+"henk");
 buttonPay.addEventListener("click", function() {
+    finalizePayment();
     localStorage.clear();
     window.location.href = "orderplaced.html";
 });
+
+async function finalizePayment() {
+}
 
 
 
