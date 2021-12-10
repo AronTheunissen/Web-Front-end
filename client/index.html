@@ -53,11 +53,20 @@
                        <div class = "kidsprice"> Kids: <span class = "sign"> &euro; </span><span id = "kidsPrice" class="price">kidsPrice </span></div>
                        <div class = "discountrequirement">
                            <em> Family ticket:</em>
-                           Buy <span id = "minimumNumberOfAdults" class="adults">minimumNumberOfAdults</span> adult tickets & <span id="minimumNumberOfKids" class="child">minimumNumberOfKids</span> kid tickets for a <span id= "discount" class="percentage">discount</span>% discount!
+                           Buy <span id = "minimumNumberOfAdults" class="adults">
+                                minimumNumberOfAdults
+                           </span> adult tickets &
+                           <span id="minimumNumberOfKids" class="child">
+                               minimumNumberOfKids
+                           </span> kid tickets for a
+                           <span id= "discount" class="percentage">
+                               discount
+                           </span>% discount!
+                           <div class="availability">There are <span id="available"></span> tickets still available.</div>
                        </div>
                    </div>
-                   <label>Adults: </label><input placeholder="adults" type="number" class="numberofadults" />
-                   <label>Kids: </label><input placeholder="kids" type="number" class="numberofkids" />
+                   <label>Adults: </label><input value="0" min=0 type="number" class="numberofadults" />
+                   <label>Kids: </label><input value="0" min=0 type="number" class="numberofkids" />
                    <div class="total"><span class="sign">&euro;</span><span class="price">0,-</span></div>
                    <button class="orderbutton">Add to shopping basket</button>
                </div>

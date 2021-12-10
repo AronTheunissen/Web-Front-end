@@ -14,15 +14,22 @@ function makeTicket() {
         document.body.appendChild(newTicket[1]);
         newTicket[2].textContent = newTicket[2].textContent + parseInt(newOrder.numberKids);
         document.body.appendChild(newTicket[2]);
+        newTicket[3].textContent = newTicket[3].textContent + parseInt(newOrder.price);
+        document.body.appendChild(newTicket[3]);
         newButton = clone.querySelectorAll("button");
         document.body.append(newButton[0]);
+        newButton[0].addEventListener("click", ()=>cancelButtonClicked(i))
     }
 }
 
 makeTicket();
 
-function cancelButtonClicked() {
-    localStorage.removeItem(document.getElementById("cancelOrderButton").parentNode);
+function cancelButtonClicked(i) {
+    let sb = JSON.parse(localStorage.getItem("shoppingBasket"));
+    console.log(sb.orders[i]);
+    sb.orders.splice(i,1);
+    localStorage.setItem("shoppingBasket",JSON.stringify(sb));
+    window.location.href = "shoppingbasket.html";
 }
 
 let buttonPay = document.querySelector(".finalizepaymentbutton");
@@ -33,7 +40,18 @@ buttonPay.addEventListener("click", function() {
 });
 
 async function finalizePayment() {
+    if (localStorage.getItem("shoppingBasket")) {
+            const completeOrder = JSON.parse(localStorage.getItem("shoppingBasket"));
+            const response = await fetch('/api/placeorder', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(completeOrder)
+            });
+            localStorage.removeItem("shoppingBasket");
+            location.replace("orderplaced.html")
+    }
 }
+
 
 
 

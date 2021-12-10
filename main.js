@@ -123,10 +123,20 @@ app.get("/api/attractions", function (request, response) {
 
     response.json(attractions)
 });
+let orderList = [];
 
 app.post("/api/placeorder", function (request, response) {
     console.log("Api call received for /placeorder");
-
+    for (let i = o; i < request.body.length; i++) {
+        orderList.push(request.body[i]);
+        for (let j = 0; j < attractions.length; j++) {
+            if(request.body[i].attraction == attractions[j].name) {
+                attractions[j].available -= request.body[i].adults + request.body[i].kids;
+                break;
+            }
+        }
+    }
+    console.log(orderList);
     /**
      * Send the status code 200 back to the clients browser.
      * This means OK.
